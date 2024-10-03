@@ -1,4 +1,4 @@
-<%- layout("/layouts/boilerplate")%>
+<%- layout("/layouts/boilerplate") %>
 <style>
     #filters {
         display: flex;
@@ -69,8 +69,9 @@
     }
 
     #filters:hover .arrow {
-    display: flex;
+        display: flex;
     }
+
     @media (max-width: 768px) {
         .arrow {
             display: none;
@@ -101,17 +102,22 @@
         .filter p {
             font-size: 0.9rem;
         }
+
         #filters:hover .arrow {
-        display: none;
-    }
+            display: none;
+        }
     }
 
+    /* Hide tax info by default */
+    .tax-info {
+        display: none;
+    }
 </style>
 
 <div id="filters">
     <div class="arrow arrow-left" onclick="slide(-1)"><i class="fa-solid fa-chevron-left"></i></div>
     <div class="arrow arrow-right" onclick="slide(1)"><i class="fa-solid fa-chevron-right"></i></div>
-    
+
     <div class="filter-container">
         <div class="filter">
             <div><i class="fa-solid fa-fire"></i></div>
@@ -200,19 +206,21 @@
 </div>
 
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-    <% for(let listing of allListings ){%>
+    <% for (let listing of allListings) { %>
     <a href="/listings/<%= listing._id %>" class="listing-link">
         <div class="card col listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
             <div class="card-img-overlay"></div>
             <div class="card-body">
-                <b><p class="card-text"><%= listing.title %></b>
-                <br>&#8377;<%= listing.price.toLocaleString("en-IN") %>/night
-                <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
+                <p class="card-text">
+                    <b><%= listing.title %></b>
+                    <br>&#8377;<%= listing.price.toLocaleString("en-IN") %>/night
+                    <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
+                </p>
             </div>
         </div>
     </a>
-    <% }%>
+    <% } %>
 </div>
 
 <script>
@@ -222,7 +230,7 @@
     const totalFilters = filters.length;
 
     function slide(direction) {
-        const visibleFilters = 5; 
+        const visibleFilters = 5;
         const maxSlide = totalFilters - visibleFilters;
 
         if (direction === 1 && currentSlide < maxSlide) {
@@ -235,16 +243,17 @@
         filterContainer.style.transform = `translateX(${offset}%)`;
     }
 
+    // Tax switch logic
     let taxSwitch = document.getElementById("flexSwitchCheckDefault");
     taxSwitch.addEventListener("click", () => {
         let taxInfo = document.getElementsByClassName("tax-info");
         for (let info of taxInfo) {
-            info.style.display = info.style.display === "inline" ? "none" : "inline";
+            info.style.display = (info.style.display === "inline") ? "none" : "inline";
         }
     });
 
+    // Touch event handling for sliding
     let startX;
-
     filterContainer.addEventListener('touchstart', (event) => {
         startX = event.touches[0].clientX;
     });
