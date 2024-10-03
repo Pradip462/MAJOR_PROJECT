@@ -20,6 +20,59 @@
   .logo {
     margin-right: 1rem;
   }
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+  }
+
+  .search-btn:hover {
+    background-color: #ff6f79;
+    color: #fff;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem;
+  }
+
+  .logo {
+    margin-right: 1rem;
+  }
+  .navbar-collapse.collapse.show {
+  background-color: white;
+}
+  /* Adjustments for mobile responsiveness */
+  @media (max-width: 768px) {
+    .search-inp {
+      padding: 0.5rem 1rem;
+      width: 100%;
+    }
+
+    .search-btn {
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+
+    .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar-nav .nav-link {
+      padding: 0.5rem 0;
+    }
+    .navbar-collapse {
+    padding: 1rem;
+  }
+  }
+
 </style>
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
@@ -32,7 +85,7 @@
           <a class="nav-link" href="/listings">Explore</a>
         </div>
         <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search">
+          <form class="d-flex flex-column flex-md-row" role="search">
             <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" >
             <button class="btn search-btn" type="submit">
               <i class="fa-solid fa-magnifying-glass"></i>Search</button>

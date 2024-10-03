@@ -1,43 +1,118 @@
 <%- layout("/layouts/boilerplate")%>
-    <!-- <h3>All Listings</h3> -->
-    <!-- <form method="GET" action="/listings/new">
-        <button>Create New Listings</button>
-    </form> -->
-    <style>
+<style>
+    #filters {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .filter-container {
+        display: flex;
+        transition: transform 0.5s ease;
+        min-width: 100%;
+    }
+
+    .filter {
+        text-align: center;
+        margin-right: 1rem;
+        opacity: 0.7;
+        flex: 0 0 auto;
+    }
+
+    .filter:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .filter p {
+        font-size: 1rem;
+    }
+
+    .tax-tog {
+        border: 1px solid black;
+        border-radius: 1rem;
+        height: 3.25rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: white;
+        z-index: 999;
+    }
+
+    .arrow {
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 1px;
+        padding: 0.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+    .arrow-left {
+        left: 10px;
+    }
+
+    .arrow-right {
+        right: 10px;
+    }
+
+    #filters:hover .arrow {
+    display: flex;
+    }
+    @media (max-width: 768px) {
+        .arrow {
+            display: none;
+        }
+
+        .tax-tog {
+            bottom: 10px;
+            right: 10px;
+        }
+
         #filters {
-            display: flex;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
-            align-items: center;
+        }
+
+        .filter-container {
+            flex-direction: row;
+            justify-content: center;
         }
 
         .filter {
-            text-align: center;
-            margin-right: 2rem;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
-        .filter:hover {
+            margin: 0.3rem;
+            flex: 0 1 auto;
             opacity: 1;
-            cursor: pointer;
+            width: calc(33.33% - 0.6rem);
         }
-        .filter p{
-            font-size: 1rem;
-            /* font-size: 0.8rem; */
+
+        .filter p {
+            font-size: 0.9rem;
         }
-        .tax-info {
-            display: none;
-        }
-        .tax-tog {
-            border: 1px solid black;
-            border-radius: 1rem;
-            height: 3.25rem;
-            padding: 1rem;
-            margin-left: 2rem;
-            display: flex;
-            align-items: center;
-        }
-    </style>
-    <div id="filters">
+        #filters:hover .arrow {
+        display: none;
+    }
+    }
+
+</style>
+
+<div id="filters">
+    <div class="arrow arrow-left" onclick="slide(-1)"><i class="fa-solid fa-chevron-left"></i></div>
+    <div class="arrow arrow-right" onclick="slide(1)"><i class="fa-solid fa-chevron-right"></i></div>
+    
+    <div class="filter-container">
         <div class="filter">
             <div><i class="fa-solid fa-fire"></i></div>
             <p>Trending</p>
@@ -61,7 +136,7 @@
         <div class="filter">
             <div><i class="fa-solid fa-person-swimming"></i></div>
             <p>Amazing Pools</p>
-        </div>        
+        </div>
         <div class="filter">
             <div><i class="fa-solid fa-campground"></i></div>
             <p>Camping</p>
@@ -78,41 +153,112 @@
             <div><i class="fa-solid fa-igloo"></i></div>
             <p>Domes</p>
         </div>
-        <div class="tax-tog">
-            <div class="form-check-reverse form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
-              </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-tree"></i></div>
+            <p>Forests</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beaches</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-building"></i></div>
+            <p>Urban</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-ship"></i></div>
+            <p>Boats</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-guitar"></i></div>
+            <p>Music Stays</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-car"></i></div>
+            <p>Road Trips</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-dragon"></i></div>
+            <p>Mythical Homes</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-fish"></i></div>
+            <p>Aquatic Homes</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-rocket"></i></div>
+            <p>Space Stays</p>
         </div>
     </div>
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-        <% for(let listing of allListings ){%>
-        <a href="/listings/<%= listing._id %>" class="listing-link">
-            <div class="card col listing-card" >
-                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
-                <div class="card-img-overlay"></div>
-                <div class="card-body">
-                   <b><p class="card-text"><%= listing.title%></b>
-                   <br>&#8377;<%= listing.price.toLocaleString("en-IN") %>/night
-                   <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
-                </div>
-            </div>
-        </a>
-        <% }%>
-    </div>
-    
+</div>
 
-    <script>
-        let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-        taxSwitch.addEventListener("click",()=>{
-            let taxInfo = document.getElementsByClassName("tax-info");
-            for(info of taxInfo) {
-                if(info.style.display != "inline") {
-                    info.style.display = "inline";
-                }
-                else {
-                    info.style.display = "none";
-                }                
-            }
-        });
-    </script>
+<div class="tax-tog">
+    <div class="form-check-reverse form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+    </div>
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of allListings ){%>
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card col listing-card">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+                <b><p class="card-text"><%= listing.title %></b>
+                <br>&#8377;<%= listing.price.toLocaleString("en-IN") %>/night
+                <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
+            </div>
+        </div>
+    </a>
+    <% }%>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const filterContainer = document.querySelector('.filter-container');
+    const filters = document.querySelectorAll('.filter');
+    const totalFilters = filters.length;
+
+    function slide(direction) {
+        const visibleFilters = 5; 
+        const maxSlide = totalFilters - visibleFilters;
+
+        if (direction === 1 && currentSlide < maxSlide) {
+            currentSlide++;
+        } else if (direction === -1 && currentSlide > 0) {
+            currentSlide--;
+        }
+
+        const offset = -currentSlide * (100 / visibleFilters);
+        filterContainer.style.transform = `translateX(${offset}%)`;
+    }
+
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+        let taxInfo = document.getElementsByClassName("tax-info");
+        for (let info of taxInfo) {
+            info.style.display = info.style.display === "inline" ? "none" : "inline";
+        }
+    });
+
+    let startX;
+
+    filterContainer.addEventListener('touchstart', (event) => {
+        startX = event.touches[0].clientX;
+    });
+
+    filterContainer.addEventListener('touchmove', (event) => {
+        const moveX = event.touches[0].clientX;
+        const diffX = startX - moveX;
+
+        if (diffX > 30) {
+            slide(1);
+            startX = moveX;
+        } else if (diffX < -30) {
+            slide(-1);
+            startX = moveX;
+        }
+    });
+</script>
