@@ -51,7 +51,7 @@ MAJOR_PROJECT/
 ## 📸 Screenshots
 
 ![Homepage](homepage.png)
-![Individual Listings](individul_listings.png).
+![Individual Listings](individual_listings.png)
 
 ## 🙋‍♂️ Connect with Me
 
