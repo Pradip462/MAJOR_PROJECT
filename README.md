@@ -52,23 +52,17 @@ MAJOR_PROJECT/
 ## 🏠 Homepage Overview
 
 The homepage of **Wanderlust** is designed to offer a seamless and visually appealing browsing experience for users seeking unique stays around the world.
-
-![Homepage Screenshot](./homepage.png)
-
 ### 🔑 Key Features:
 - 🔍 **Search Bar**: Easily search for destinations.
 - 🏷️ **Category Slider**: Explore properties by categories like Mountains, Castles, Forests, Beaches, and more.
 - 🏡 **Listings Grid**: Displays accommodation cards with images, names, and nightly rates.
 - 📱 **Responsive UI**: Works beautifully across devices for optimal user experience.
-
-![Homepage](homepage.png)
+![Homepage Screenshot](./homepage.png)
 ---
 
 ## 📄 Individual Listing Page
 
 Each listing page provides in-depth details about a specific property to help users make informed booking decisions.
-
-![Listing Screenshot](./individual_listings.png)
 
 ### 🔑 Key Features:
 - 🖼️ **Large Cover Image**: Gives a visual impression of the property.
