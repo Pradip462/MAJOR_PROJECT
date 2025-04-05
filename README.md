@@ -30,14 +30,28 @@ An advanced web application built with the **MERN-like stack** (MongoDB, Express
 
 ---
 
-## 📁 Folder Structure
+## 📁 Project Structure
 
-MAJOR_PROJECT/ ├── controllers/ # Handles route logic ├── models/ # Mongoose schemas ├── public/ # Static assets (CSS, JS, images) ├── routes/ # Express route definitions ├── utils/ # Helper utilities ├── views/ # EJS templates for rendering pages ├── app.js # Main server file ├── cloudConfig.js # Cloudinary / storage config ├── middleware.js # Auth & error handling ├── schema.js # MongoDB schemas └── package.json # Project dependencies
+```bash
+MAJOR_PROJECT/
+├── controllers/       # Handles route logic
+├── models/            # Mongoose schemas
+├── public/            # Static assets (CSS, JS, images)
+├── routes/            # Express route definitions
+├── utils/             # Helper utilities
+├── views/             # EJS templates for rendering pages
+├── app.js             # Main server file
+├── cloudConfig.js     # Cloudinary / storage config
+├── middleware.js      # Auth & error handling
+├── schema.js          # MongoDB schemas
+└── package.json       # Project dependencies
+```
 ---
 
 ## 📸 Screenshots
 
 ![Homepage](public/images/screenshot1.png)
+![Individual Listings]().
 
 ## 🙋‍♂️ Connect with Me
 
