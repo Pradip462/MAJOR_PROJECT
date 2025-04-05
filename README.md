@@ -55,5 +55,5 @@ MAJOR_PROJECT/
 
 ## 🙋‍♂️ Connect with Me
 
-- 💼 [LinkedIn Profile](https://www.linkedin.com/in/YOUR-USERNAME)
-- 📧 Email: your.email@example.com
+- 💼 [LinkedIn Profile](https://www.linkedin.com/in/pradip-kumar-mukhi-416b33249/)
+- 📧 Email: pradipofficial462@gmail.com
