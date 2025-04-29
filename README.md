@@ -73,6 +73,72 @@ Each listing page provides in-depth details about a specific property to help us
 
 ![Individual Listings](individual_listings.png)
 
+---
+## 🔐 Login Page
+The login page allows registered users to securely access their accounts and manage their listings.
+
+### 🔑 Key Features:
+- 📧 **Email & Password Login**: Authenticates users via server-side validation.
+
+- 🍪 **Session Management**: Uses Express Sessions & Cookies to maintain user state.
+
+- ⚠️ **Flash Messages**: Displays real-time feedback for success or error.
+
+- 🔒 **Secure Routing**: Protects private routes post-login.
+
+![LogIn Page](login.png)
+
+---
+
+## 📝 Sign-Up Page
+The sign-up page provides a smooth onboarding experience for new users looking to list or book stays.
+
+### 🔑 Key Features:
+- 🧑‍💼 User Registration Form: Includes name, email, password, and password confirmation.
+
+- 🧠 Form Validation: Prevents invalid or duplicate entries.
+
+- 🔐 Password Hashing: Ensures secure storage of user credentials.
+
+- ✉️ Flash Notifications: Feedback for registration success or errors.
+
+  ![SignUp Page](signup.png)
+
+---
+
+## 🏨 Create Your Own Listings Page
+This page allows authenticated users to create and list their own hotels, hostels, or stays.
+
+### 🔑 Key Features:
+- 📝 Listing Form: Add title, description, location, image URLs, and pricing.
+
+- 👤 User Ownership: Listings are tied to the currently logged-in user.
+
+- ☁️ MongoDB Integration: All listing data is stored in the cloud via MongoDB Atlas.
+
+- ✅ Validation & Feedback: Ensures quality data entry and provides user confirmations.
+
+![Individual Listings](createnewlistings.png  )
+
+---
+
+## ✏️ Edit Your Listings Page
+Only the listing owner can access this page to update or revise their previously created listings.
+
+### 🔑 Key Features:
+- 🔐 Access Control: Ensures only the listing owner can edit.
+
+- ✍️ Pre-filled Form: Displays current data for seamless editing.
+
+- 🔄 Live Updates: Changes are instantly reflected in MongoDB.
+
+- 🚫 Unauthorized Access Blocked: Non-owners are restricted from making changes.
+
+![Individual Listings](editlistings.png)
+
+---
+
+
 ## 🙋‍♂️ Connect with Me
 
 - 💼 [LinkedIn Profile](https://www.linkedin.com/in/pradip-kumar-mukhi-416b33249/)
